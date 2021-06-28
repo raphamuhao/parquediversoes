@@ -1,0 +1,63 @@
+using System;
+using System.IO;
+using System.Text;
+
+class MainClass {
+
+  public static void Main (string[] args) { 
+    int sair = 1;
+    bool confirmaçao = false;
+    int  entradaUsuario = 0; 
+    int entradaEscolhida = 0;
+    int codIngresso = 0;
+    bool verificaResposta;
+    string entrada = null;
+    Console.Clear();
+    Console.WriteLine("## Bem Vindo ao Parque ##");
+
+    while(sair != 0 ){
+      Console.WriteLine("## Digite o campo que deseja acessar na bilheteria ##"); 
+      Console.WriteLine("## 1 - Ingresso ##"); 
+      Console.WriteLine("## 2 -  Parque ##");
+      Console.WriteLine("## 0 - Finalizar Programa ##");  
+      entrada = Console.ReadLine();
+
+
+      //Tratar a entrada inicial
+      verificaResposta = digitosCertos(entrada) ;
+      if(verificaResposta == false ){
+       sair= 1;  
+      }else{
+        entradaUsuario = int.Parse(entrada);
+        switch (entradaUsuario){
+          //Ingresso
+          case 1:
+          string tipoUsuario = "a";
+          int entradaIngresso = 0;
+            while(entradaIngresso >= 0 && entradaIngresso <= 2  ){
+              verificaResposta = false;
+              while(verificaResposta != true){
+                Console.Clear();
+                Console.WriteLine("## Digite o numero referente ao ingresso que quer comprar ##"); 
+                Console.WriteLine("## 1 - Premium ##"); 
+                Console.WriteLine("## 2 - Basico  ##"); 
+                Console.WriteLine("## 0 - Voltar menu inicial ##"); 
+                entrada = Console.ReadLine();
+                verificaResposta = digitosCertosUmDois(entrada);
+                Console.Clear();
+              }
+              entradaIngresso = int.Parse(entrada);
+
+              /*switch(entradaPessoa){
+                case
+              }*/
+            }
+
+          default:
+            sair = 0;
+            break;          
+        }
+      }
+    }
+  }
+}
