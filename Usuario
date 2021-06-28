@@ -1,0 +1,26 @@
+class  Usuario{
+  private  string nome = null;
+  private  string idade = null;
+  private  string altura = null;
+
+  public Usuario(string name, string age, string alt ){
+   nome = name;
+   idade = age;
+   altura = alt;
+  }
+  public Usuario(){
+   nome = "Pudim";
+   idade = "20";
+   altura = "1,60";
+  }
+  public string getNome(){
+    return nome;
+  }
+  public string getIdade(){
+    return idade;
+  }
+  public string getAltura(){
+    return altura;
+  }
+  
+}
