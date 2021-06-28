@@ -7,7 +7,7 @@ class MainClass {
   public static void Main (string[] args) { 
     int sair = 1;
     bool confirmaçao = false;
-    int  entradaUsuario = 0; 
+    int  entradaPessoa = 0; 
     int entradaEscolhida = 0;
     int codIngresso = 0;
     bool verificaResposta;
@@ -28,11 +28,11 @@ class MainClass {
       if(verificaResposta == false ){
        sair= 1;  
       }else{
-        entradaUsuario = int.Parse(entrada);
-        switch (entradaUsuario){
+        entradaPessoa = int.Parse(entrada);
+        switch (entradaPessoa){
           //Ingresso
           case 1:
-          string tipoUsuario = "a";
+          string tipoPessoa = "a";
           int entradaIngresso = 0;
             while(entradaIngresso >= 0 && entradaIngresso <= 2  ){
               verificaResposta = false;
