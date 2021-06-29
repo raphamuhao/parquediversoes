@@ -1,1 +1,25 @@
-
+using System;
+using System.IO;
+using System.Text;
+class Funcionario{
+  // método de cadastro funcionários 
+  public static void cadastrarFuncionario(){
+    Console.WriteLine(" Zonas de trabalho:");
+    Console.WriteLine(" aa - Controle Bilheteria;");
+    Console.WriteLine(" ab - Manutenção;");
+    Console.WriteLine(" ac - Pronto-Socorro.");
+    Console.WriteLine(" Informe os seguintes dados: Zona de trabalho,Nome,Idade.");
+    Console.WriteLine(" Sem letras maiúsculas nas inicias, espaço entre nome e sobrenomes e sem caracteres especiais tipo ! *  e Ç" );
+    Console.WriteLine(" Exemplo:aa,maria,12189658608,167,18");
+    string dados = Console.ReadLine();
+    FileStream arq = new FileStream("Funcionario.text",FileMode.Append,FileAccess.Write); //ESCREVER NO ARQUIVO
+    StreamWriter informaçoesbasicas = new StreamWriter(arq, Encoding.UTF7);    
+    string infobasic = dados;
+    informaçoesbasicas.WriteLine(infobasic);
+    informaçoesbasicas.Close();
+    arq.Close(); 
+    Console.WriteLine ( " Acesso liberado, bom trabalho! ");
+    Console.WriteLine ( infobasic);
+    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3)); 
+    
+  }
