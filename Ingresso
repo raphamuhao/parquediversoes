@@ -15,7 +15,7 @@ class Ingresso{
     Console.WriteLine(" Tipos de ingresso disponíveis:");
     Console.WriteLine(" 1- Premium");
     Console.WriteLine(" 2- Basico");
-    Console.WriteLine(" Informe os seguintes dados: Número de intentificação do tipo do ingresso,Nome,Cnpj,Altura,Idade");
+    Console.WriteLine(" Informe os seguintes dados: Número de intentificação do tipo do ingresso,Nome,Cpf,Altura,Idade");
     Console.WriteLine(" Sem letras maiúsculas nas inicias, espaço entre nome e sobrenomes e sem caracteres especiais tipo ! *  e Ç" );
     Console.WriteLine(" Exemplo:1,eltonjohn,12189658608,168,18");
     string dados = Console.ReadLine();
