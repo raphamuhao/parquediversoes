@@ -5,7 +5,7 @@ class Ingresso{
   private  int tipo = 0;
 
   //construtor objeto
-  public Ingresso(int tip){
+  public Ingresso(int tip,int valor){
    tipo = tip;
    
   }
@@ -59,7 +59,7 @@ class Ingresso{
       }
     }
     if(nIngresso > cont){
-      Console.WriteLine(" Número do ingresso informado está errado. Id maior do que a quantidade vendida");
+      Console.WriteLine(" Número do ingresso informado está errado. Id maior do que a quantidade vendida.");
       System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3));
     } 
     infoBasic.Close();
