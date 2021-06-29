@@ -1,25 +1,50 @@
 using System;
 using System.IO;
 using System.Text;
+
 class Ingresso{
   private  int tipo = 0;
-
+  private int valorP = 0;
+  private int valorB = 0;
+  
   //construtor objeto
-  public Ingresso(int tip,int valor){
-   tipo = tip;
-   
+  public Ingresso(int tip){
+    tipo = tip;
+    valorP = 70;
+    valorB = 40;
+  }
+  
+  //GET-SET
+  public int getValorP(){
+    return valorP;
+  }
+  public  int getValorB(){
+    
+    return valorB;
+  }
+  public  void setValorP(int valorMondifica){
+    valorP = valorMondifica;
+    Console.WriteLine("## Valor Modificado");
+    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3));
+  }
+  public  void setValorB(int valorMondifica){
+    valorB = valorMondifica;
+    Console.WriteLine("## Valor Modificado");
+    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3));
   }
   // método de cadastro Ingressos vendidos 
   public static void cadastrarIngresso(){
+    int cont = 0;
+    int valor = 0;
     Console.WriteLine(" Número do cadastro:{0}",numeroIngresso()+1);
     Console.WriteLine(" Tipos de ingresso disponíveis:");
     Console.WriteLine(" 1- Premium");
     Console.WriteLine(" 2- Basico");
-    Console.WriteLine(" Informe os seguintes dados: Número de intentificação do tipo do ingresso,Nome,Cpf,Altura,Idade");
+    Console.WriteLine(" Informe os seguintes dados: Número de intentificação do tipo do ingresso,Nome,Cnpj,Altura,Idade");
     Console.WriteLine(" Sem letras maiúsculas nas inicias, espaço entre nome e sobrenomes e sem caracteres especiais tipo ! *  e Ç" );
     Console.WriteLine(" Exemplo:1,eltonjohn,12189658608,168,18");
     string dados = Console.ReadLine();
-    FileStream arq = new FileStream("Ingresso.text",FileMode.Append,FileAccess.Write); //ESCREVER NO ARQUIVO
+    FileStream arq = new FileStream("Ingresso.text",FileMode.Append,FileAccess.Write);
     StreamWriter informaçoesbasicas= new StreamWriter(arq, Encoding.UTF7);    
     string infobasic = dados;
     informaçoesbasicas.WriteLine(infobasic);
@@ -27,8 +52,17 @@ class Ingresso{
     arq.Close(); 
     Console.WriteLine ( " Compra realizada. ");
     Console.WriteLine ( infobasic);
-    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3)); 
-
+    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3));
+    string[] arquivoValores = dados.Split(',');
+    cont = int.Parse(arquivoValores[0]);
+    Console.WriteLine (arquivoValores[0]);
+    Ingresso ingresso = new Ingresso(cont);
+   if(cont == 1){
+      valor = ingresso.getValorP();
+    }else{
+      valor = ingresso.getValorP();
+    } 
+    ADquantidadeVendida(cont,valor);
   }
   //NÚMERO INGRESSO
   public static int numeroIngresso(){
@@ -59,11 +93,64 @@ class Ingresso{
       }
     }
     if(nIngresso > cont){
-      Console.WriteLine(" Número do ingresso informado está errado. Id maior do que a quantidade vendida.");
+      Console.WriteLine(" Número do ingresso informado está errado. Id maior do que a quantidade vendida");
       System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3));
     } 
     infoBasic.Close();
     leiturArqIngresso.Close();
     
+  }
+  // MÉTODO AD QUANTIDADE VENDIDA DE INGRESSO 
+  public static void ADquantidadeVendida (int tipoIngresso, int valor){
+
+    string tipo = tipoIngresso.ToString();
+    string valorI = valor.ToString();
+    DateTime aDate = DateTime.Now;
+    string dados = String.Concat(tipo,",",valorI,",",aDate);
+
+    FileStream arq = new FileStream("VendasIngresso.text",FileMode.Append,FileAccess.Write);
+    StreamWriter informaçoesbasicas= new StreamWriter(arq, Encoding.UTF7);    
+    string infobasic = dados;
+    informaçoesbasicas.WriteLine(infobasic);
+    informaçoesbasicas.Close();
+    arq.Close();  
+
+  }
+  // MÉTODO  QUANTIDADE TOTAL VENDIDA DE INGRESSO 
+  public static void quantiVendida(int tipo){
+    int nIngresso = tipo;
+    int cont = 1;
+    string  dia = null;
+    int valorD=0;
+    int valorT=0;
+    string dados=null;
+    string entrada = null;
+    string diaP=null;
+    FileStream  leiturArqIngresso= new FileStream("VendasIngresso.text",FileMode.Open,FileAccess.Read);
+    StreamReader infoBasic =new StreamReader(leiturArqIngresso,Encoding.UTF8); 
+    while(!infoBasic.EndOfStream){
+      dados = infoBasic.ReadLine(); 
+      string[] arquivoValores = dados.Split(',');
+      cont = int.Parse(arquivoValores[0]);
+      valorD = int.Parse(arquivoValores[1]);
+      
+      if(tipo == cont){
+          valorT = valorT + valorD;
+          Console.WriteLine(valorT);
+          Console.WriteLine(arquivoValores[2]); 
+      }else{
+        if(tipo == cont){
+          valorT = valorT + valorD;
+          Console.WriteLine(valorT);
+          Console.WriteLine(arquivoValores[2]);
+        }
+
+      }
+      
+      dia = arquivoValores[2];
+    }
+    infoBasic.Close();
+    leiturArqIngresso.Close();
+    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(20));
   }
 }
