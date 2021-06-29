@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using System.IO;
 using System.Text;
 class Funcionario{
@@ -23,3 +23,18 @@ class Funcionario{
     System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3)); 
     
   }
+
+  //NumMatrícula
+  public static int numeroMatricula(){
+    int i = 0;
+    FileStream  leiturArqIngresso = new FileStream("Funcionario.text",FileMode.Open,FileAccess.Read);
+    StreamReader infoBasic = new StreamReader(leiturArqIngresso,Encoding.UTF8);
+ 
+    while(!infoBasic.EndOfStream){
+      infoBasic.ReadLine();
+      i++;
+    } 
+    infoBasic.Close();
+    leiturArqIngresso.Close();
+    return i;
+  } */
