@@ -1,1 +1,42 @@
+/*using System;
+using System.IO;
+using System.Text;
+
+class Parque{
+
+  public static void Main (string[] args) { 
+   public float qtdPessoas = 0;
+   private int qtdIngressosDia = 0;
+   private int qtdPremiumComprado = 0;
+   private int qtdBasicoComprado = 0;
+
+
+    private int registrarCompraIngresso(){
+      //colocar arquivo para gravar ingressos comprados na data 
+      if(entradaUsuario == 1){
+        qtdPremiumComprado = qtdPremiumComprado + 1;
+      }else{
+        qtdBasicoComprado = qtdBasicoComprado + 1;
+      }
+      qtdIngressosDia = qtdPremiumComprado + qtdBasicoComprado;
+      return qtdIngressosDia;
+    }
+      
+    string dados = Console.ReadLine();
+    FileStream arq = new FileStream("Parque.text",FileMode.Append,FileAccess.Write);
+    StreamWriter informaçoesbasicas= new StreamWriter(arq, Encoding.UTF7);    
+    string infobasic = dados;
+    informaçoesbasicas.WriteLine(infobasic);
+    informaçoesbasicas.Close();
+    arq.Close(); 
+    Console.WriteLine ( " Dados do ingresso arquivados. ");
+    Console.WriteLine ( infobasic);
+    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3));
+
+    private int RotatividadePessoas(){   
+      return qtdPessoas;
+    }
+    
+  }
+}*/
 
