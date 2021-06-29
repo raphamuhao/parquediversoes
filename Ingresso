@@ -12,11 +12,14 @@ class Ingresso{
   // método de cadastro Ingressos vendidos 
   public static void cadastrarIngresso(){
     Console.WriteLine(" Número do cadastro:{0}",numeroIngresso()+1);
-    Console.WriteLine( " Por favor passe as seguintes informações: Nome,Cnpj,Altura,Idade");
-    Console.WriteLine("Sem letras maiúsculas nas inicias, espaço entre nome e sobrenomes e sem caracteres especiais tipo ! *  e Ç" );
-    Console.WriteLine(" Exemplo: eltonjohn,03.302.666/0001-56,168,18");
+    Console.WriteLine(" Tipos de ingresso disponíveis:");
+    Console.WriteLine(" 1- Premium");
+    Console.WriteLine(" 2- Basico");
+    Console.WriteLine(" Informe os seguintes dados: Número de intentificação do tipo do ingresso,Nome,Cnpj,Altura,Idade");
+    Console.WriteLine(" Sem letras maiúsculas nas inicias, espaço entre nome e sobrenomes e sem caracteres especiais tipo ! *  e Ç" );
+    Console.WriteLine(" Exemplo:1,eltonjohn,12189658608,168,18");
     string dados = Console.ReadLine();
-    FileStream arq = new FileStream("Ingresso.text",FileMode.Append,FileAccess.Write);
+    FileStream arq = new FileStream("Ingresso.text",FileMode.Append,FileAccess.Write); //ESCREVER NO ARQUIVO
     StreamWriter informaçoesbasicas= new StreamWriter(arq, Encoding.UTF7);    
     string infobasic = dados;
     informaçoesbasicas.WriteLine(infobasic);
@@ -27,7 +30,7 @@ class Ingresso{
     System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3)); 
 
   }
-  //número do Ingresso
+  //NÚMERO INGRESSO
   public static int numeroIngresso(){
     int i = 0;
     FileStream  leiturArqIngresso= new FileStream("Ingresso.text",FileMode.Open,FileAccess.Read);
@@ -41,4 +44,26 @@ class Ingresso{
     leiturArqIngresso.Close();
     return i;
   } 
+  //CONSULTAR INGRESSO
+  public static void consultarIngresso(int numeroIngresso){
+    int nIngresso = numeroIngresso;
+    int cont = 1;
+    string dados=null;
+
+    FileStream  leiturArqIngresso= new FileStream("Ingresso.text",FileMode.Open,FileAccess.Read);
+    StreamReader infoBasic =new StreamReader(leiturArqIngresso,Encoding.UTF8);   
+    while(!infoBasic.EndOfStream){
+      dados = infoBasic.ReadLine();
+      if(cont == nIngresso){
+        Console.WriteLine(dados);
+      }
+    }
+    if(nIngresso > cont){
+      Console.WriteLine(" Número do ingresso informado está errado. Id maior do que a quantidade vendida");
+      System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3));
+    } 
+    infoBasic.Close();
+    leiturArqIngresso.Close();
+    
+  }
 }
