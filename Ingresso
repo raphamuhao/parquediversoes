@@ -1,1 +1,44 @@
+using System;
+using System.IO;
+using System.Text;
+class Ingresso{
+  private  int tipo = 0;
 
+  //construtor objeto
+  public Ingresso(int tip){
+   tipo = tip;
+   
+  }
+  // método de cadastro Ingressos vendidos 
+  public static void cadastrarIngresso(){
+    Console.WriteLine(" Número do cadastro:{0}",numeroIngresso()+1);
+    Console.WriteLine( " Por favor passe as seguintes informações: Nome,Cnpj,Altura,Idade");
+    Console.WriteLine("Sem letras maiúsculas nas inicias, espaço entre nome e sobrenomes e sem caracteres especiais tipo ! *  e Ç" );
+    Console.WriteLine(" Exemplo: eltonjohn,03.302.666/0001-56,168,18");
+    string dados = Console.ReadLine();
+    FileStream arq = new FileStream("Ingresso.text",FileMode.Append,FileAccess.Write);
+    StreamWriter informaçoesbasicas= new StreamWriter(arq, Encoding.UTF7);    
+    string infobasic = dados;
+    informaçoesbasicas.WriteLine(infobasic);
+    informaçoesbasicas.Close();
+    arq.Close(); 
+    Console.WriteLine ( " Compra realizada. ");
+    Console.WriteLine ( infobasic);
+    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3)); 
+
+  }
+  //número do Ingresso
+  public static int numeroIngresso(){
+    int i = 0;
+    FileStream  leiturArqIngresso= new FileStream("Ingresso.text",FileMode.Open,FileAccess.Read);
+    StreamReader infoBasic =new StreamReader(leiturArqIngresso,Encoding.UTF8);
+ 
+    while(!infoBasic.EndOfStream){
+      infoBasic.ReadLine();
+      i++;
+    } 
+    infoBasic.Close();
+    leiturArqIngresso.Close();
+    return i;
+  } 
+}
