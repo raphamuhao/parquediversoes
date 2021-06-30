@@ -91,6 +91,7 @@ class Ingresso{
       if(cont == nIngresso){
         Console.WriteLine(dados);
       }
+      cont++;
     }
     if(nIngresso > cont){
       Console.WriteLine(" Número do ingresso informado está errado. Id maior do que a quantidade vendida");
