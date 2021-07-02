@@ -120,12 +120,13 @@ class MainClass {
                     entrada = Console.ReadLine();
                     verificaResposta = digitosCertos(entrada);
                     entradaUsuario = int.Parse(entrada);
+                    
                     Console.Clear();
                     switch(entradaUsuario){
                       case 1 :
                         while(entradaUsuario == 1){
                                
-                        entradaFuncionario = int.Parse(entrada);
+                        entradaUsuario = int.Parse(entrada);
                         
                         if(verificaResposta == false){
        			              sair = 1;  
