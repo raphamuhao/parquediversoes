@@ -6,7 +6,6 @@ class MainClass {
   public static void Main (string[] args) { 
     int sair = 1;
     int  entradaUsuario = 0; 
-    int codProduto = 0;
     int entradaV = 0;
     bool verificaResposta;
     string entrada = null;
