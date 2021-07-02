@@ -1,29 +1,41 @@
-/*using System;
+using System;
 using System.IO;
 using System.Text;
 class Funcionario{
   // método de cadastro funcionários 
-  public static void cadastrarFuncionario(){
-    Console.WriteLine(" Zonas de trabalho:");
+  public static void cadastrarIngresso(){
+    int cont = 0;
+    int valor = 0;
+    Console.WriteLine(" Número da matrícula:{0}",numeroMatricula()+1);
+    Console.WriteLine(" Como caddastrar seus dados:");
     Console.WriteLine(" aa - Controle Bilheteria;");
     Console.WriteLine(" ab - Manutenção;");
     Console.WriteLine(" ac - Pronto-Socorro.");
-    Console.WriteLine(" Informe os seguintes dados: Zona de trabalho,Nome,Idade.");
+    Console.WriteLine(" Preenchimento: Cód da zona de trabalho,Nome,Cpf,Idade");
     Console.WriteLine(" Sem letras maiúsculas nas inicias, espaço entre nome e sobrenomes e sem caracteres especiais tipo ! *  e Ç" );
     Console.WriteLine(" Exemplo:aa,maria,12189658608,167,18");
     string dados = Console.ReadLine();
-    FileStream arq = new FileStream("Funcionario.text",FileMode.Append,FileAccess.Write); //ESCREVER NO ARQUIVO
-    StreamWriter informaçoesbasicas = new StreamWriter(arq, Encoding.UTF7);    
+    FileStream arq = new FileStream("Funcionario.txt",FileMode.Append,FileAccess.Write); //ESCREVER NO ARQUIVO
+    StreamWriter informaçoesbasicas= new StreamWriter(arq, Encoding.UTF7);    
     string infobasic = dados;
     informaçoesbasicas.WriteLine(infobasic);
     informaçoesbasicas.Close();
     arq.Close(); 
     Console.WriteLine ( " Acesso liberado, bom trabalho! ");
-    Console.WriteLine ( infobasic);
-    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3)); 
-    
+    Console.WriteLine (infobasic);
+    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3));
+    /*string[] arquivoValores = dados.Split(',');
+    cont = int.Parse(arquivoValores[0]);
+    Console.WriteLine (arquivoValores[0]);
+    Ingresso ingresso = new Ingresso(cont);
+    if(cont == 1){
+      valor = ingresso.getValorP();
+    }else{
+      valor = ingresso.getValorP();
+    } 
+    ADquantidadeVendida(cont,valor);*/
   }
-
+ 
   //NumMatrícula
   public static int numeroMatricula(){
     int i = 0;
@@ -35,6 +47,32 @@ class Funcionario{
       i++;
     } 
     infoBasic.Close();
-    leiturArqIngresso.Close();
+    leiturArqFuncionario.Close();
     return i;
-  } */
+  } 
+
+  //consultar matrícula
+  public static void consultarFuncionario(int numeroFuncionario){
+    int nFuncionario = numeroFuncionario;
+    int cont = 1;
+    string dados = null;
+
+    FileStream  leiturArqFuncionario= new FileStream("Funcionario.txt",FileMode.Open,FileAccess.Read);
+    StreamReader infoBasic =new StreamReader(leiturArqFuncionario,Encoding.UTF8);   
+    while(!infoBasic.EndOfStream){
+      dados = infoBasic.ReadLine();
+      if(cont == nFuncionario){
+        Console.WriteLine(dados);
+      }
+      cont++;
+    }
+    if(nFuncionario > cont){
+      Console.WriteLine(" Número informado incorreto. Id maior do que a quantidade cadastrada");
+      System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3));
+    } 
+    infoBasic.Close();
+    leiturArqFuncionario.Close();
+    
+  }
+
+}
