@@ -124,11 +124,8 @@ class MainClass {
                     Console.Clear();
                     switch(entradaUsuario){
                       case 1 :
-                        while(entrada == 1){
-                        Console.WriteLine(" Número da matrícula(CPF):{0}",numeroMatricula()+1);
-      		              entrada = Console.ReadLine();
-      		              verificaResposta = digitosCertosUmDois(entrada);//TRATAR ENTRADA
-                        
+                        while(entradaUsuario == 1){
+                               
                         entradaFuncionario = int.Parse(entrada);
                         
                         if(verificaResposta == false){
@@ -191,7 +188,7 @@ class MainClass {
                         break;
                         default:
                           verificaResposta = false;
-                          entradaUsuario = ;
+                          entradaUsuario = 0;
                         break;
                       }  
                       break;
@@ -231,8 +228,8 @@ class MainClass {
               }
             }
           break;
-          case :3
-           sair =0;
+          case 3:
+           sair = 0;
           break;
           default:
             sair = 0;
