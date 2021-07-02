@@ -15,7 +15,7 @@ class MainClass {
     while(sair != 0 ){
       Console.WriteLine("## Digite o campo que deseja acessar na bilheteria ##"); 
       Console.WriteLine("## 1 - Ingresso ##");  
-      Console.WriteLine("## 2 -  Parque ##");
+      Console.WriteLine("## 2 - Parque ##");
       Console.WriteLine("## 0 - Finalizar Programa ##");  
       entrada = Console.ReadLine();
       verificaResposta = digitosCertosUmDois(entrada) ;//TRATAR ENTRADA
@@ -53,7 +53,7 @@ class MainClass {
                   verificaResposta = false;
                   while(verificaResposta != true){
                     int nuIngresso = 0;
-                    Console.WriteLine( "## Informe núemro do ingresso: ##");
+                    Console.WriteLine( "## Informe número do ingresso: ##");
                     nuIngresso = int.Parse(Console.ReadLine());
                     Ingresso.consultarIngresso(nuIngresso);
                     verificaResposta = true;
@@ -128,12 +128,15 @@ class MainClass {
                         Console.WriteLine(" Número da matrícula(CPF):{0}",numeroMatricula()+1);
       		              entrada = Console.ReadLine();
       		              verificaResposta = digitosCertosUmDois(entrada);//TRATAR ENTRADA
-
+                        
+                        entradaFuncionario = int.Parse(entrada);
+                        
                         if(verificaResposta == false){
        			              sair = 1;  
      			              }else{
-                          entradaFuncionario = int.Parse(entrada);
-                          
+                          Funcionario.cadastrarFuncionario();
+                          System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3));                      
+
                         }
                         }
 
@@ -142,15 +145,15 @@ class MainClass {
                        Console.WriteLine("## Digite o numero referente ao campo que quer acessar ##"); 
                        Console.WriteLine("## 1 - Relátorio Saldo  ##");
                        Console.WriteLine("## 2 - Alterar Valor ingresso ##");
-                       Console.WriteLine("## 0 - Voltar menu inicial     ##"); 
+                       Console.WriteLine("## 0 - Voltar menu inicial ##"); 
                        entrada = Console.ReadLine();
                        verificaResposta = digitosCertos(entrada);
                        entradaUsuario = int.Parse(entrada);
                        Console.Clear();
                         switch(entradaUsuario){
                           case 1 :
-                            Console.WriteLine("## De novo  ##");
-                            Console.WriteLine("## Informe tipo de Ingresso   ##"); 
+                            Console.WriteLine("## De novo ##");
+                            Console.WriteLine("## Informe tipo de Ingresso ##"); 
                             entrada = Console.ReadLine();
                             verificaResposta = digitosCertos(entrada);
                             entradaUsuario = int.Parse(entrada);
@@ -158,8 +161,8 @@ class MainClass {
                             
                           break;
                           case 2 :
-                            Console.WriteLine("## Informe qual tipo de ingresso deseja alterar :  ##");  
-                            Console.WriteLine("## 1 - Basico, 2 - Premium ou 0 para sair  ##");  
+                            Console.WriteLine("## Informe qual tipo de ingresso deseja alterar : ##");  
+                            Console.WriteLine("## 1 - Basico, 2 - Premium ou 0 para sair ##");  
                             entrada = Console.ReadLine();
                             verificaResposta = digitosCertos(entrada);
                             entradaV = int.Parse(entrada);
