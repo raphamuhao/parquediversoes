@@ -33,8 +33,8 @@ class MainClass {
               while(verificaResposta != true){
                 Console.Clear();
                 Console.WriteLine("## Escolha uma opção abaixo ##"); 
-                Console.WriteLine("## 1 - Comprar ingresso  ##"); 
-                Console.WriteLine("## 2 - Consultar ingresso  ##"); 
+                Console.WriteLine("## 1 - Comprar ingresso ##"); 
+                Console.WriteLine("## 2 - Consultar ingresso ##"); 
                 Console.WriteLine("## 0 - Voltar menu inicial ##");
                 entrada = Console.ReadLine();
                 verificaResposta = digitosCertosUmDois(entrada);
@@ -53,7 +53,7 @@ class MainClass {
                   verificaResposta = false;
                   while(verificaResposta != true){
                     int nuIngresso = 0;
-                    Console.WriteLine( "## Informe núemro do ingresso:##");
+                    Console.WriteLine( "## Informe núemro do ingresso: ##");
                     nuIngresso = int.Parse(Console.ReadLine());
                     Ingresso.consultarIngresso(nuIngresso);
                     verificaResposta = true;
@@ -65,7 +65,7 @@ class MainClass {
                       verificaResposta = digitosCertosZeroUm(entrada);
                       entradaUsuario = int.Parse(entrada);
                       if(entradaUsuario == 1){
-                        Console.WriteLine( "## Informe número do ingresso:##");
+                        Console.WriteLine( "## Informe número do ingresso: ##");
                         nuIngresso = int.Parse(Console.ReadLine());
                         Ingresso.consultarIngresso(nuIngresso);// MÉTODO CLASSE INGRESSO
                       }else{
@@ -101,7 +101,7 @@ class MainClass {
               while(verificaResposta != true){
                 Console.Clear();
                 Console.WriteLine("## Digite o numero referente ao campo que quer acessar ##"); 
-                Console.WriteLine("## 1 - ADMINISTRATIVO##"); 
+                Console.WriteLine("## 1 - ADMINISTRATIVO ##"); 
                 Console.WriteLine("## 2 - BRINQUEDOS    ##"); 
                 Console.WriteLine("## 0 - Voltar menu inicial ##"); 
                 entrada = Console.ReadLine();
@@ -115,9 +115,9 @@ class MainClass {
                  verificaResposta = false;
                   while(verificaResposta != true){
                     Console.WriteLine("## Digite o numero referente ao campo que quer acessar ##"); 
-                    Console.WriteLine("## 1_CADASTRO DE FUNCIONARIOS  ##");
-                    Console.WriteLine("## 2_FINANCEIRO                ##");
-                    Console.WriteLine("## 0 - Voltar menu inicial     ##"); 
+                    Console.WriteLine("## 1 - CADASTRO DE FUNCIONARIOS  ##");
+                    Console.WriteLine("## 2 - FINANCEIRO                ##");
+                    Console.WriteLine("## 0 - Voltar menu inicial ##"); 
                     entrada = Console.ReadLine();
                     verificaResposta = digitosCertos(entrada);
                     entradaUsuario = int.Parse(entrada);
@@ -128,8 +128,8 @@ class MainClass {
                       break;
                       case 2 :
                        Console.WriteLine("## Digite o numero referente ao campo que quer acessar ##"); 
-                       Console.WriteLine("## 1_Relátorio Saldo  ##");
-                       Console.WriteLine("## 2_Alterar Valor ingresso ##");
+                       Console.WriteLine("## 1 - Relátorio Saldo  ##");
+                       Console.WriteLine("## 2 - Alterar Valor ingresso ##");
                        Console.WriteLine("## 0 - Voltar menu inicial     ##"); 
                        entrada = Console.ReadLine();
                        verificaResposta = digitosCertos(entrada);
@@ -137,7 +137,7 @@ class MainClass {
                        Console.Clear();
                         switch(entradaUsuario){
                           case 1 :
-                          Console.WriteLine("## denovo  ##");
+                          Console.WriteLine("## De novo  ##");
                             Console.WriteLine("## Informe tipo de Ingresso   ##"); 
                             entrada = Console.ReadLine();
                             verificaResposta = digitosCertos(entrada);
@@ -147,7 +147,7 @@ class MainClass {
                           break;
                           case 2 :
                             Console.WriteLine("## Informe qual tipo de ingresso deseja alterar :  ##");  
-                            Console.WriteLine("## 1- Basico, 2- Premium ou 0 para sair  ##");  
+                            Console.WriteLine("## 1 - Basico, 2 - Premium ou 0 para sair  ##");  
                             entrada = Console.ReadLine();
                             verificaResposta = digitosCertos(entrada);
                             entradaV = int.Parse(entrada);
@@ -155,7 +155,7 @@ class MainClass {
                             if(entradaUsuario == 1){
                               Ingresso alterarIngresso = new Ingresso(entradaV);
                               Console.WriteLine("## Valor Atual Ingresso Premium: ##", alterarIngresso.getValorB());
-                              Console.WriteLine("## Informe novo valor");
+                              Console.WriteLine("## Informe novo valor ##");
                               entrada = Console.ReadLine();
                               entradaV = int.Parse(entrada);
                               alterarIngresso.setValorB(entradaV);
@@ -164,7 +164,7 @@ class MainClass {
                               Ingresso alterarIngresso = new Ingresso(entradaV);
                               if(entradaUsuario == 2){
                               Console.WriteLine("## Valor Atual Ingresso Premium: ##",alterarIngresso.getValorP());
-                              Console.WriteLine("## Informe novo valor");
+                              Console.WriteLine("## Informe novo valor ##");
                               entrada = Console.ReadLine();
                               entradaV = int.Parse(entrada);
                               alterarIngresso.setValorP(entradaV);
@@ -176,7 +176,7 @@ class MainClass {
                         break;
                         default:
                           verificaResposta = false;
-                          entradaUsuario = 0;
+                          entradaUsuario = ;
                         break;
                       }  
                       break;
@@ -190,13 +190,13 @@ class MainClass {
                 case 2: 
                   verificaResposta = false;
                   while(verificaResposta != true){
-                    Console.WriteLine( "## INFORMAÇÕES TÉCNICA  ##"); 
-                    Console.WriteLine( "## 1 - INFORMAÇÕES TÉCNICA ##");
+                    Console.WriteLine( "## INFORMAÇÕES ##"); 
+                    Console.WriteLine( "## 1 - INFORMAÇÕES TÉCNICAS ##");
                     Console.WriteLine( "## 2 - CADASTRAR BRINQUEDO ##");
                     Console.WriteLine( "## 3 - EXIBIR LISTA USUÁRIOS ##");
                     Console.WriteLine( "## 4 - EXIBIR LISTA DE BRINQUEDOS POR TIPO DE INGRESSO ##");
                     Console.WriteLine( "## 5 - VALIDAR INGRESSO ##");
-                    Console.WriteLine( "## 0 - Voltar menu inicial          ##");
+                    Console.WriteLine( "## 0 - Voltar menu inicial ##");
                     entrada = Console.ReadLine();
                     verificaResposta = digitosCertosZeroUm(entrada);
                     Console.Clear();
@@ -205,16 +205,19 @@ class MainClass {
                 break;
                 //VOLTAR MENU INICIAL
                 case 3:
-                  entradaCliente = 0; 
+                  entradaCliente = 1; 
                 break;
                 default:
-                  Console.WriteLine("## Opçaõ inválida ##");
+                  Console.WriteLine("## Opção inválida ##");
                   System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3));
                   entradaCliente = 0;
                   
                 break;
               }
             }
+          break;
+          case :3
+           sair =0;
           break;
           default:
             sair = 0;
@@ -243,8 +246,8 @@ class MainClass {
   //FUNÇAO TRATAR ENTRADA NUMERO 0,1,2.
   public static bool digitosCertosUmDois(string entrada){
     char primeiroCaracter = entrada[0];
-    int codigoAscii = Convert.ToInt32(primeiroCaracter );
-    if(codigoAscii < 47 || codigoAscii > 51 || entrada.Length > 1){
+    int codigoAscii = Convert.ToInt32(primeiroCaracter);
+    if(codigoAscii < 27 || codigoAscii > 51 || entrada.Length > 1){
       Console.WriteLine("Opção inválida");
       Console.WriteLine("Digite uma opção correta ou 0 prar sair");
       System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3));
