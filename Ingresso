@@ -24,27 +24,27 @@ class Ingresso{
   }
   public  void setValorP(int valorMondifica){
     valorP = valorMondifica;
-    Console.WriteLine("## Valor Modificado");
+    Console.WriteLine("## Valor Modificado.");
     System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3));
   }
   public  void setValorB(int valorMondifica){
     valorB = valorMondifica;
-    Console.WriteLine("## Valor Modificado");
+    Console.WriteLine("## Valor Modificado.");
     System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3));
   }
   // método de cadastro Ingressos vendidos 
   public static void cadastrarIngresso(){
     int cont = 0;
     int valor = 0;
-    Console.WriteLine(" Número do cadastro:{0}",numeroIngresso()+1);
+    Console.WriteLine("NÚMERO DO CADASTRO: {0}",numeroIngresso()+1);
     Console.WriteLine(" Tipos de ingresso disponíveis:");
     Console.WriteLine(" 1- Premium");
     Console.WriteLine(" 2- Basico");
     Console.WriteLine(" Informe os seguintes dados: Número de intentificação do tipo do ingresso,Nome,Cnpj,Altura,Idade");
     Console.WriteLine(" Sem letras maiúsculas nas inicias, espaço entre nome e sobrenomes e sem caracteres especiais tipo ! *  e Ç" );
-    Console.WriteLine(" Exemplo:1,eltonjohn,12189658608,168,18");
+    Console.WriteLine(" Exemplo:1,eltonjohn,12189658608,168,18 ");
     string dados = Console.ReadLine();
-    FileStream arq = new FileStream("Ingresso.text",FileMode.Append,FileAccess.Write);
+    FileStream arq = new FileStream("Ingresso.txt",FileMode.Append,FileAccess.Write);
     StreamWriter informaçoesbasicas= new StreamWriter(arq, Encoding.UTF7);    
     string infobasic = dados;
     informaçoesbasicas.WriteLine(infobasic);
@@ -67,7 +67,7 @@ class Ingresso{
   //NÚMERO INGRESSO
   public static int numeroIngresso(){
     int i = 0;
-    FileStream  leiturArqIngresso= new FileStream("Ingresso.text",FileMode.Open,FileAccess.Read);
+    FileStream  leiturArqIngresso= new FileStream("Ingresso.txt",FileMode.Open,FileAccess.Read);
     StreamReader infoBasic =new StreamReader(leiturArqIngresso,Encoding.UTF8);
  
     while(!infoBasic.EndOfStream){
@@ -84,7 +84,7 @@ class Ingresso{
     int cont = 1;
     string dados=null;
 
-    FileStream  leiturArqIngresso= new FileStream("Ingresso.text",FileMode.Open,FileAccess.Read);
+    FileStream  leiturArqIngresso= new FileStream("Ingresso.txt",FileMode.Open,FileAccess.Read);
     StreamReader infoBasic =new StreamReader(leiturArqIngresso,Encoding.UTF8);   
     while(!infoBasic.EndOfStream){
       dados = infoBasic.ReadLine();
@@ -109,7 +109,7 @@ class Ingresso{
     DateTime aDate = DateTime.Now;
     string dados = String.Concat(tipo,",",valorI,",",aDate);
 
-    FileStream arq = new FileStream("VendasIngresso.text",FileMode.Append,FileAccess.Write);
+    FileStream arq = new FileStream("VendasIngresso.txt",FileMode.Append,FileAccess.Write);
     StreamWriter informaçoesbasicas= new StreamWriter(arq, Encoding.UTF7);    
     string infobasic = dados;
     informaçoesbasicas.WriteLine(infobasic);
@@ -127,7 +127,7 @@ class Ingresso{
     string dados=null;
     string entrada = null;
     string diaP=null;
-    FileStream  leiturArqIngresso= new FileStream("VendasIngresso.text",FileMode.Open,FileAccess.Read);
+    FileStream  leiturArqIngresso= new FileStream("VendasIngresso.txt",FileMode.Open,FileAccess.Read);
     StreamReader infoBasic =new StreamReader(leiturArqIngresso,Encoding.UTF8); 
     while(!infoBasic.EndOfStream){
       dados = infoBasic.ReadLine(); 
